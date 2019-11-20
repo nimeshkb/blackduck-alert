@@ -69,6 +69,8 @@ jacoco {
 }
 
 repositories {
+    // TODO remove this when we are no longer depending on a SNAPSHOT in alert-common
+    mavenLocal()
     // Need this repository to resolve the spring-security-saml2-core dependencies
     maven {
         url 'https://build.shibboleth.net/nexus/content/repositories/releases/'

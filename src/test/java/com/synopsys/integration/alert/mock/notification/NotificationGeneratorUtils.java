@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.synopsys.integration.blackduck.api.generated.component.ResourceMetadata;
-import com.synopsys.integration.blackduck.api.generated.enumeration.NotificationType;
+import com.synopsys.integration.blackduck.api.manual.enumeration.NotificationType;
 import com.synopsys.integration.blackduck.api.generated.view.VulnerabilityView;
 import com.synopsys.integration.blackduck.api.manual.component.AffectedProjectVersion;
 import com.synopsys.integration.blackduck.api.manual.component.VulnerabilityNotificationContent;
