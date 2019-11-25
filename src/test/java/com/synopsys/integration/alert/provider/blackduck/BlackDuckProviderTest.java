@@ -16,7 +16,7 @@ import com.synopsys.integration.alert.common.provider.ProviderNotificationType;
 import com.synopsys.integration.alert.common.workflow.task.TaskManager;
 import com.synopsys.integration.alert.provider.blackduck.descriptor.BlackDuckContent;
 import com.synopsys.integration.alert.provider.blackduck.tasks.BlackDuckAccumulator;
-import com.synopsys.integration.alert.provider.blackduck.tasks.BlackDuckProjectSyncTask;
+import com.synopsys.integration.alert.provider.blackduck.tasks.BlackDuckDataSyncTask;
 import com.synopsys.integration.blackduck.api.manual.enumeration.NotificationType;
 import com.synopsys.integration.blackduck.configuration.BlackDuckServerConfig;
 import com.synopsys.integration.log.IntLogger;
@@ -27,9 +27,9 @@ public class BlackDuckProviderTest {
     @Test
     public void testInitializeNotConfigured() {
         BlackDuckAccumulator accumulatorTask = Mockito.mock(BlackDuckAccumulator.class);
-        BlackDuckProjectSyncTask projectSyncTask = Mockito.mock(BlackDuckProjectSyncTask.class);
+        BlackDuckDataSyncTask projectSyncTask = Mockito.mock(BlackDuckDataSyncTask.class);
         Mockito.when(accumulatorTask.getTaskName()).thenReturn(BlackDuckAccumulator.TASK_NAME);
-        Mockito.when(projectSyncTask.getTaskName()).thenReturn(BlackDuckProjectSyncTask.TASK_NAME);
+        Mockito.when(projectSyncTask.getTaskName()).thenReturn(BlackDuckDataSyncTask.TASK_NAME);
         TaskManager taskManager = Mockito.mock(TaskManager.class);
         BlackDuckProperties blackDuckProperties = Mockito.mock(BlackDuckProperties.class);
         Mockito.when(blackDuckProperties.createBlackDuckServerConfigSafely(Mockito.any(IntLogger.class))).thenReturn(Optional.empty());
@@ -41,9 +41,9 @@ public class BlackDuckProviderTest {
     @Test
     public void testInitializeConfigured() {
         BlackDuckAccumulator accumulatorTask = Mockito.mock(BlackDuckAccumulator.class);
-        BlackDuckProjectSyncTask projectSyncTask = Mockito.mock(BlackDuckProjectSyncTask.class);
+        BlackDuckDataSyncTask projectSyncTask = Mockito.mock(BlackDuckDataSyncTask.class);
         Mockito.when(accumulatorTask.getTaskName()).thenReturn(BlackDuckAccumulator.TASK_NAME);
-        Mockito.when(projectSyncTask.getTaskName()).thenReturn(BlackDuckProjectSyncTask.TASK_NAME);
+        Mockito.when(projectSyncTask.getTaskName()).thenReturn(BlackDuckDataSyncTask.TASK_NAME);
         TaskManager taskManager = Mockito.mock(TaskManager.class);
         BlackDuckProperties blackDuckProperties = Mockito.mock(BlackDuckProperties.class);
         Mockito.when(blackDuckProperties.createBlackDuckServerConfigSafely(Mockito.any(IntLogger.class))).thenReturn(Optional.of(Mockito.mock(BlackDuckServerConfig.class)));
@@ -55,9 +55,9 @@ public class BlackDuckProviderTest {
     @Test
     public void testDestroy() {
         BlackDuckAccumulator accumulatorTask = Mockito.mock(BlackDuckAccumulator.class);
-        BlackDuckProjectSyncTask projectSyncTask = Mockito.mock(BlackDuckProjectSyncTask.class);
+        BlackDuckDataSyncTask projectSyncTask = Mockito.mock(BlackDuckDataSyncTask.class);
         Mockito.when(accumulatorTask.getTaskName()).thenReturn(BlackDuckAccumulator.TASK_NAME);
-        Mockito.when(projectSyncTask.getTaskName()).thenReturn(BlackDuckProjectSyncTask.TASK_NAME);
+        Mockito.when(projectSyncTask.getTaskName()).thenReturn(BlackDuckDataSyncTask.TASK_NAME);
         TaskManager taskManager = Mockito.mock(TaskManager.class);
         BlackDuckProperties blackDuckProperties = Mockito.mock(BlackDuckProperties.class);
         BlackDuckProvider provider = new BlackDuckProvider(BLACK_DUCK_PROVIDER_KEY, accumulatorTask, projectSyncTask, null, taskManager, blackDuckProperties, null, null);
@@ -68,7 +68,7 @@ public class BlackDuckProviderTest {
     @Test
     public void testGetNotificationTypes() {
         BlackDuckAccumulator accumulatorTask = Mockito.mock(BlackDuckAccumulator.class);
-        BlackDuckProjectSyncTask projectSyncTask = Mockito.mock(BlackDuckProjectSyncTask.class);
+        BlackDuckDataSyncTask projectSyncTask = Mockito.mock(BlackDuckDataSyncTask.class);
         TaskManager taskManager = new TaskManager();
         BlackDuckProperties blackDuckProperties = Mockito.mock(BlackDuckProperties.class);
 
@@ -90,7 +90,7 @@ public class BlackDuckProviderTest {
     @Test
     public void testGetSupportedFormatTypes() {
         BlackDuckAccumulator accumulatorTask = Mockito.mock(BlackDuckAccumulator.class);
-        BlackDuckProjectSyncTask projectSyncTask = Mockito.mock(BlackDuckProjectSyncTask.class);
+        BlackDuckDataSyncTask projectSyncTask = Mockito.mock(BlackDuckDataSyncTask.class);
         TaskManager taskManager = new TaskManager();
         BlackDuckProperties blackDuckProperties = Mockito.mock(BlackDuckProperties.class);
 
