@@ -1,7 +1,7 @@
 ext.moduleName = 'com.synopsys.integration.alert.common'
 
 dependencies {
-    implementation project(':alert-issuetracker')
+    api 'com.synopsys.integration:issuetracker-jira:0.0.1'
     //TODO update to non-SNAPSHOT
     api 'com.blackducksoftware.integration:blackduck-common:44.4.7-SNAPSHOT'
 
